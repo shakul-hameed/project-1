@@ -12,13 +12,14 @@ body {
   height: 100vh;
   display: grid;
   justify-content: center;
-  margin-top: 10%;
+ 
 }
 
 #container {
   width: 28.125rem;
   background-color: #051747;
-  border-radius: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,12 +44,10 @@ body {
   width: 23rem;
   height: 2.5rem;
   background-color: #fefefe;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
-.input-container:hover {
-  border: 1px solid black;
-}
+
 
 .input {
   margin-top: 8px;
@@ -76,4 +75,8 @@ input[type="checkbox"] {
 .arrow-icon{
     font-size: 30px;
     padding-left: 10px;
+}
+
+.signup a{
+  color: #2196f3;
 }

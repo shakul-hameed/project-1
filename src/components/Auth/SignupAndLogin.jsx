@@ -1,72 +1,58 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box, Paper, Tab, Tabs, Typography, } from "@mui/material"
+import { useRef, useState } from "react";
+import Login from "../login/Login";
+import SignUp from "../signup/SignUp";
+import "./SignupAndLogin.css"
 
-export default function SignupAndLogin(props) {
-    const { children, value, index, ...other } = props;
+const paperStyle = {width:"28.1rem" ,marginTop:"10%"}
 
-    return (
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`simple-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
-  }
-  
-  SignupAndLogin.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-  };
-  
-  function a11yProps(index) {
-    return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
-    };
-  }
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-  
-   export function BasicTabs() {
-    const [value, setValue] = React.useState(0);
-  
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
-  
-    return (
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
-          </Tabs>
+ 
+
+
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box>
+          <Typography>{children}</Typography>
         </Box>
-        <SignupAndLogin value={value} index={0}>
-          Item One
-        </SignupAndLogin>
-        <SignupAndLogin value={value} index={1}>
-          Item Two
-        </SignupAndLogin>
-        <SignupAndLogin value={value} index={2}>
-          Item Three
-        </SignupAndLogin>
-      </Box>
-    );
-  }
+      )}
+    </div>
+  );
+}
+
+function SignupAndLogin() {
+
+  const [value,setValue] = useState(0)
+
+  
 
 
+  
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+  return (
+    <Paper  style={paperStyle} elevation={15} >
+    {}
+        <Tabs  textColor="primary"  indicatorColor="inherit" variant="fullWidth" centered className="tabs" value={value} onChange={handleChange} aria-label="disabled tabs example">
+          <Tab className="tab"  sx={{fontSize:"15px",fontWeight:"600",borderRight:"1px solid #051747",borderTopLeftRadius:"5px",}} label="login" />
+          <Tab  className="tab" sx={{fontSize:"15px",fontWeight:"600",borderTopRightRadius:"5px"}}  label="signup" />
+        </Tabs>
 
+        <TabPanel  value={value} index={0}><Login/></TabPanel>
+        <TabPanel value={value} index={1}><SignUp/></TabPanel>
+    </Paper>
+  )
+}
+
+export default SignupAndLogin

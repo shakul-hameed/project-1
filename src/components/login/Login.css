@@ -7,7 +7,15 @@
     color: #FEFEFE;
 }
 
-.signup a{
+.para a{
     text-decoration: none;
     color: #2196f3;
+}
+
+#container{
+    height: 38rem;
+}
+
+.input-container:hover{
+    border: 2px solid #2196f3;
 }
