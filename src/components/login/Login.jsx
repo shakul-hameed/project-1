@@ -1,14 +1,13 @@
-import { Button, Stack, } from "@mui/material";
+import { Button, Link, Stack, } from "@mui/material";
 import { CiLock } from "react-icons/ci";
 import "./Login.css"
 import { useEffect, useRef } from "react";
 
-function Login() {
+function Login({handleChange}) {
   const inputRef = useRef(null);
   
   useEffect(() => {
     inputRef.current.focus()
-    console.log(inputRef)
   })
   return (
     <div id="container">
@@ -36,7 +35,7 @@ function Login() {
           </Stack>
           <Stack spacing={1}>
           <p className="para"><a href="">Forgot Password?</a> </p>
-          <p className="para signup">Don't have an account? <a href="">Signup</a> </p>
+          <p className="para signup">Don't have an account? <Link onClick={() =>{handleChange("event",1)}}>Signup</Link>  </p>
           </Stack>
          
           </Stack>

@@ -1,8 +1,9 @@
 import { Box, Paper, Tab, Tabs, Typography, } from "@mui/material"
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Login from "../login/Login";
 import SignUp from "../signup/SignUp";
 import "./SignupAndLogin.css"
+
 
 const paperStyle = {width:"28.1rem" ,marginTop:"10%"}
 
@@ -34,10 +35,7 @@ function SignupAndLogin() {
 
   const [value,setValue] = useState(0)
 
-  
 
-
-  
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -45,12 +43,12 @@ function SignupAndLogin() {
     <Paper  style={paperStyle} elevation={15} >
     {}
         <Tabs  textColor="primary"  indicatorColor="inherit" variant="fullWidth" centered className="tabs" value={value} onChange={handleChange} aria-label="disabled tabs example">
-          <Tab className="tab"  sx={{fontSize:"15px",fontWeight:"600",borderRight:"1px solid #051747",borderTopLeftRadius:"5px",}} label="login" />
-          <Tab  className="tab" sx={{fontSize:"15px",fontWeight:"600",borderTopRightRadius:"5px"}}  label="signup" />
+          <Tab  className={value == 0 ? "tab tab-hover" : "tab"}  sx={{fontSize:"15px",fontWeight:"600",borderRight:"1px solid #051747",borderTopLeftRadius:"5px",}} label="login" />
+          <Tab  className={value == 1 ? "tab tab-hover" : "tab"} sx={{fontSize:"15px",fontWeight:"600",borderTopRightRadius:"5px"}}  label="signup" />
         </Tabs>
 
-        <TabPanel  value={value} index={0}><Login/></TabPanel>
-        <TabPanel value={value} index={1}><SignUp/></TabPanel>
+        <TabPanel  value={value} index={0}  ><Login handleChange={handleChange}/></TabPanel>
+        <TabPanel value={value} index={1}><SignUp handleChange={handleChange}/></TabPanel>
     </Paper>
   )
 }

@@ -1,17 +1,16 @@
 import { CiLock } from "react-icons/ci";
 
 import "./SignUp.css";
-import { Button, Stack, } from "@mui/material";
+import { Button, Link, Stack, } from "@mui/material";
 import { useEffect, useRef } from "react";
 
 
-function SignUp() {
+function SignUp({handleChange}) {
 
   const inputRef = useRef(null);
 
   useEffect(() => {
     inputRef.current.focus()
-    console.log(inputRef)
   })
 
   return (
@@ -48,7 +47,7 @@ function SignUp() {
     }}} >Submit </Button>
           
           </Stack>
-          <p className="signup">Already have an account? <a href="">Login</a> </p>
+          <p className="signup">Already have an account? <Link onClick={() =>{handleChange("event",0)}}>Login</Link> </p>
           </Stack>
         </form>
         </Stack>

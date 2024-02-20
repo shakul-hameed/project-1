@@ -2,10 +2,13 @@
     color:#051747 !important;
     transition: 0.3s;
 
+
 }
 
-.tab:hover{
+
+
+.tab-hover{
     color: #FEFEFE !important;
-    background-color: #051747;
-    border-bottom: 1px solid #FEFEFE;
+    background-color: #051747 !important;
+    border-bottom: 1px solid #FEFEFE !important;
 }
